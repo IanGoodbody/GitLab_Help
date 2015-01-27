@@ -1,0 +1,9 @@
+*
+!/*
+!*.vhd
+!*.bit
+!*.jpg
+!*.ucf
+!*.wcfg
+!.gitignore
+!README.md
