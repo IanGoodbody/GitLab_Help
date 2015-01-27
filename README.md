@@ -9,7 +9,7 @@ This is intnded to be a help document for setting up GitLab for ECFE 383. I have
 
 Every time you run the `git init` command the Git Bash shell the Octodex (the github mascot cat-thing) will install a `.git` directory in your current working directory. For example, say I accidently messed up and ran `git init` in my downloads directory.
 
-![alt text]('Example 1')
+![alt text](https://raw.githubusercontent.com/IanGoodbody/GitLab_Help/master/Images/Ex010.jpg)
 
 The first command is `cd` which changes the working directory, which git shows in yellow. Notice how after I ran `git init` the (master) tag was created after the working directory. What git does is create a "master" branch in this directory for a given project. This is part of the version control aspect of Git Bash which you can learn about [here](http://git-scm.com/documentation). 
 
@@ -21,7 +21,7 @@ rm -rf .git
 ```
 which will get the job done too. When you are done the (master tag should go away.
 
-![alt text](Example 2)
+![alt text](https://raw.githubusercontent.com/IanGoodbody/GitLab_Help/master/Images/Ex020.jpg)
 
 If you are like me your learning phase with github put a bunch of master branches and git repositores all over your home directory. It may help to clean things up a bit, especially if you have repositories in high level directories.
 
@@ -55,7 +55,7 @@ This is all well and good, but we have to be careful when setting up our directo
 
 The best way to implement this is probably to initalize your repository in the folder where the XILINX software saves all your projects. I have attached a screen-shot of my repository This will only work if you use the `.gitignore` file and the `git add` commands that I will demonstrate later. If you wanted you could put all your labs in a designated directory and intialize your repository there, and that would help to simplify the readability of your file tree. 
 
-![alt text](Example 3)
+![alt text](https://raw.githubusercontent.com/IanGoodbody/GitLab_Help/master/Images/Ex030.JPG)
 
 Note: for some of us, this is a point where we will create our `README.md` document for the write up. Don't. Unlike Git Hub in 382, all of the write ups for this class have to be done on a GitLab Wiki written in Markdown. I Will cover this in a later section, and it is fairly intuitive once you get into GitLab, but for now just know that things are slightly different on the GitLab side.
 
@@ -88,6 +88,12 @@ cd ..
 ```
 Where the two periods tells the shell to reference one level above the current directory taking us back to where we started. If you have multiple subdirectories levels this will let you dig in and see what is there.
 
+When you hve added files to your repository, you can check the status of your tracked files using 
+```bash
+git status
+```
+This will show you which tracked files have been added, and which have been changed but not added.
+
 #### Removing files
 
 If you add something on accident and don't want that file tracked (say a component that you deleted from the design but the file still exists), you can use the `git remove [filename]` command. Be cautious though because this will both **remove it from the tracked files and delete the file from the hard disk** and can make for a very bad day if you are not careful. The safer way to remove from the tracked list and not delete the file is to use the command:
@@ -102,7 +108,7 @@ Also, as a general rule, don't use the wildcard operator `*` with any remove or 
 
 A Commit is a formal, documented save point in the progress of your project. Once you commit, Git will save the current version of your project so that you will always be able to access it in case disaster strikes. Also any commits you `push` to the server will be saved too so anybody can see your changes (this is why good commit messages and frequent commits cand be important to you as a devloper). A commit can be accomplished with:
 
-```
+```bash
 git commit -m "[Short and sweet commit comment]"
 ```
 
@@ -122,15 +128,16 @@ The way they seemed to have configured things for this class is that our usernam
 Your git repository will link to the outside world (server) using a remote. A single repository can have multiple remotes with any assortment of names besides "origin" (check the [docuumentation](http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)). For sake of consistency though I will use origin here. 
 
 Adding a remote is simple enough.
-```
-git remote add origin [url in quotes]
+```bash
+git remote add origin "[HTTP address ending in .git]"
 ```
 A few things to watch out for when adding a remote:
   1. Type the web address in quotes. If there are spaces in the web address it will throw an error if the quotes aren't there.
-  2. WHen working in GitLab, be sure to use the HTTP (http://dfec:23...)address that you find in the address bar of your browser. The setup instructions that you see when you log in and open an empty project give you the SSH address by default which requires a key and has been causing problems.
+  2. The address should end with a `.git`. If you lost that address use browsers HTTP address up to the repository name and ad ".git" to the end. For example this repository is at "https://github.com/IanGoodbody/GitLab_Help.git"
+  3. WHen working in GitLab, be sure to use the HTTP (http://dfec:23...)address that you find in the address bar of your browser. The setup instructions that you see when you log in and open an empty project give you the SSH address by default which requires a key and has been causing problems.
 
 Once your remote is established you can push your work to the server. This point should be very liberating and relaxing as you are creating a backup of your code on an external server and because you now have something that can be graded if your computer suddenly dies. To push the `master` branch of your project to your `origin` remote server type 
-```
+```bash
 git push origin master
 ```
 The shell should then prompt you for a username and password. Use the same username and password that you used to log onto GitLab/GitHub.
@@ -163,6 +170,14 @@ or wahtever name you ued if it is not "origin". This will give you a clean slate
 ##### Incorrect Username or Password
 
 Make sure you are using the username and password that you log into the server with. For GitLab this should be your .edu email and whatever password you set. If that doesn't go get a drink of water, check Caps Lock, then type your information again slowly. If that doesn't clear up the problem you may have to reset your password on the server.
+
+#### Using the Wiki  http://daringfireball.net/projects/markdown/syntax
+
+For our class, instead of using a Readme for each project we will be creating wiki pages for each project. This should keep all of our writeups in one place. You can navigate to the wikis using the tabs at the top of the web-page.
+
+![alt text](https://raw.githubusercontent.com/IanGoodbody/GitLab_Help/master/Images/Ex040.JPG)
+
+Once in the wikis tab you can add paes till your heart's content. One small point you should be aware of, if you are having trouble with markdown not working I think (reasonable chance that I am wrong) it is because GitLab uses the archaic [Markdown](http://daringfireball.net/projects/markdown/syntax) and not [Git Flavored Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links). They are more or less identical so you shouldn't notice, but if you run into something not working, it can be worth checking against the first link.
 
 ---
 
