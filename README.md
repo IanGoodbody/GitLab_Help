@@ -79,6 +79,16 @@ With our `.gitignore` we can now use the wildcard `*` operator to simplify our c
 git add "./Lab_1/*"
 ```
 
+If you elected not to use the `.gitignore` or it is causing problems with your upload, an easy workaround is to upload all the files by their specific extention. Your best bet will be to either delete or rename the `.gitignore` file so it stops causing problems then running the add commands for the specific extentions you are after.
+
+```bash
+rename .gitignore gitignore   # Makes github ignore the gitignore
+git add "./Lab_1/*.vhd"
+git add "./Lab_1/*.bit"
+git add "./Lab_1/Images/*.jpg"
+rename gitignore .gitignore   # Changing back for sanity's sake
+```
+
 Be Sure to put the file path in quotes, the shell does not like the dangling wildcard. Also the period in front of the path name tells the shell to start looking from the current directory. An equivelent command would be: 
 
 ```bash
@@ -177,7 +187,7 @@ For our class, instead of using a Readme for each project we will be creating wi
 
 ![alt text](https://raw.githubusercontent.com/IanGoodbody/GitLab_Help/master/Images/Ex040.JPG)
 
-Once in the wikis tab you can add paes till your heart's content. One small point you should be aware of, if you are having trouble with markdown not working I think (reasonable chance that I am wrong) it is because GitLab uses the archaic [Markdown](http://daringfireball.net/projects/markdown/syntax) and not [Git Flavored Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links). They are more or less identical so you shouldn't notice, but if you run into something not working, it can be worth checking against the first link.
+Once in the wikis tab you can add paes till your heart's content. One small point you should be aware of, if you are having trouble with markdown not working I think (reasonable chance that I am wrong) it is because GitLab uses  [GitLab Markdown](http://dfec:2323/help/markdown/markdown) and not [Git Flavored Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links). They are more or less identical, so you probably won't run into any problems, GitLab allows some additional functions that may be fun to play with though.
 
 ---
 
