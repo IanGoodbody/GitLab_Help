@@ -5,5 +5,7 @@
 !*.jpg
 !*.ucf
 !*.wcfg
+
+# Other good things to not ignore
 !.gitignore
 !README.md
