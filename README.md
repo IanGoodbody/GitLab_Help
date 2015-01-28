@@ -91,11 +91,11 @@ Where the two periods tells the shell to reference one level above the current d
 If you elected not to use the `.gitignore` or it is causing problems with your upload, an easy workaround is to upload all the files by their specific extention. Your best bet will be to either delete or rename the `.gitignore` file so it stops causing problems then running the add commands for the specific extentions you are after.
 
 ```bash
-rename .gitignore gitignore   # Makes github ignore the gitignore
+mv .gitignore gitignore   # Move is how you rename in bash
 git add "./Lab_1/*.vhd"
 git add "./Lab_1/*.bit"
 git add "./Lab_1/Images/*.jpg"
-rename gitignore .gitignore   # Changing back for sanity's sake
+mv gitignore .gitignore   # Changing back for sanity's sake
 ```
 
 When you hve added files to your repository, you can check the status of your tracked files using 
