@@ -79,6 +79,15 @@ With our `.gitignore` we can now use the wildcard `*` operator to simplify our c
 git add "./Lab_1/*"
 ```
 
+Be Sure to put the file path in quotes, the shell does not like the dangling wildcard. Also the period in front of the path name tells the shell to start looking from the current directory. An equivelent command would be: 
+
+```bash
+cd Lab_1
+git add "*"
+cd ..
+```
+Where the two periods tells the shell to reference one level above the current directory taking us back to where we started. If you have multiple subdirectories levels this will let you dig in and see what is there.
+
 If you elected not to use the `.gitignore` or it is causing problems with your upload, an easy workaround is to upload all the files by their specific extention. Your best bet will be to either delete or rename the `.gitignore` file so it stops causing problems then running the add commands for the specific extentions you are after.
 
 ```bash
@@ -88,15 +97,6 @@ git add "./Lab_1/*.bit"
 git add "./Lab_1/Images/*.jpg"
 rename gitignore .gitignore   # Changing back for sanity's sake
 ```
-
-Be Sure to put the file path in quotes, the shell does not like the dangling wildcard. Also the period in front of the path name tells the shell to start looking from the current directory. An equivelent command would be: 
-
-```bash
-cd Lab_1
-git add "*"
-cd ..
-```
-Where the two periods tells the shell to reference one level above the current directory taking us back to where we started. If you have multiple subdirectories levels this will let you dig in and see what is there.
 
 When you hve added files to your repository, you can check the status of your tracked files using 
 ```bash
