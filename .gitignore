@@ -1,6 +1,7 @@
 # Good files to keep with XILINX uploads
 *
-!/*
+!/*   # These to lines let me into the images folder
+!/*/*.jpg 
 !*.vhd
 !*.bit
 !*.jpg
